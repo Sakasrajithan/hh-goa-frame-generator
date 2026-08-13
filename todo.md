@@ -15,3 +15,15 @@
 - [x] Establish the #02160c / #0aff7f / #34e89a HH Goa visual system with Space Grotesk typography.
 - [x] Add unit tests for share payload and caption generation.
 - [x] Verify build, live previews, responsive layouts, canvas dimensions, server sharing behavior, and document brand-asset assumptions.
+- [x] Add an official-lockup-style, photography-led Hero above the existing generator with the residency positioning, dates, location, and generator anchor CTA.
+- [x] Add the builder-residency overview with licensed Goa photography and the specified participation, review, and demo-day narrative.
+- [x] Add a four-day schedule using the requested hanging key-art-inspired note-card motif.
+- [x] Add the 247 builders, 10,000+ registrations, 50+ speakers/mentors/judges, and $50,000+ bounties statistic row.
+- [x] Add the AI × Crypto / House of NGMI event-theme section.
+- [x] Re-anchor the unchanged generator as a labeled section inside the new page flow.
+- [x] Add the 2:47PM Studio footer, social links, and repeat generator CTA.
+- [x] Ensure imagery is licensed, lazy-loaded below the fold, responsive, and does not degrade generator behavior.
+- [x] Re-verify mobile layouts, live generator behaviors, social sharing, tests, and production build after the marketing-site update.
+- [x] Replace runtime-generated schedule rotation utilities with production-safe styling for the hanging-note treatment.
+- [x] Mark footer social links as pending official HH Goa / studio destinations rather than implying configured profiles.
+- [x] Run a post-update generator smoke test covering upload, crop, download, and Share-to-X creation.

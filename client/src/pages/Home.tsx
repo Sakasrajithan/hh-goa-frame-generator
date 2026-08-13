@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { BuilderDetails, BUILDER_TITLES, CropState, GeneratorFormat, renderComposite, tweetCaption } from "@/lib/frameRenderer";
 import { trpc } from "@/lib/trpc";
 import FlowWave from "@/components/FlowWave";
+import { AboutSection, GeneratorIntro, HeroSection, ScheduleSection, SiteFooter, StatsSection, ThemeSection } from "@/components/EventLandingSections";
 
 const initialCrop: CropState = { x: 0, y: 0, zoom: 1 };
 
@@ -152,6 +153,12 @@ export default function Home() {
     <main className="relative min-h-screen overflow-hidden bg-[#02160c] text-[#fdf6e3]">
       <FlowWave />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(10,255,127,0.14),transparent_34%),linear-gradient(125deg,rgba(52,232,154,0.08),transparent_35%,rgba(10,255,127,0.04))]" />
+      <HeroSection />
+      <AboutSection />
+      <ScheduleSection />
+      <StatsSection />
+      <ThemeSection />
+      <GeneratorIntro />
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1480px] flex-col px-4 pb-10 pt-4 sm:px-7 lg:px-10">
         <header className="flex items-center justify-between gap-4 py-3 sm:py-5">
           <div className="flex items-center gap-3">
@@ -225,6 +232,7 @@ export default function Home() {
 
         <footer className="flex flex-col justify-between gap-2 border-t border-[#34e89a]/15 pt-4 font-mono text-[10px] font-bold tracking-[0.1em] text-[#639a77] sm:flex-row"><span>BUILT FOR THE 247 BUILDER CLUB</span><span>AI × CRYPTO · MULTICHAIN · GOA, INDIA</span></footer>
       </div>
+      <SiteFooter />
     </main>
   );
 }
