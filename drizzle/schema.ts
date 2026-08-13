@@ -25,4 +25,20 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Anonymous, durable references for finished canvas graphics. The file itself
+ * is stored in S3; this table stores only display metadata and the storage key.
+ */
+export const generatedShares = mysqlTable("generatedShares", {
+  id: varchar("id", { length: 32 }).primaryKey(),
+  imageKey: varchar("imageKey", { length: 512 }).notNull(),
+  imageUrl: varchar("imageUrl", { length: 1024 }).notNull(),
+  format: mysqlEnum("format", ["pfp", "id"]).notNull(),
+  builderName: varchar("builderName", { length: 128 }),
+  builderHandle: varchar("builderHandle", { length: 128 }),
+  builderTitle: varchar("builderTitle", { length: 128 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type GeneratedShare = typeof generatedShares.$inferSelect;
+export type InsertGeneratedShare = typeof generatedShares.$inferInsert;
