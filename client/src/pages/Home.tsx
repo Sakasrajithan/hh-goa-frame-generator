@@ -123,6 +123,9 @@ export default function Home() {
 
   const shareToX = async () => {
     if (!image || !canvasRef.current) return;
+    // Browsers only allow a new tab to open during the original click event.
+    // Reserve it before awaiting the share upload, then navigate it once the URL is ready.
+    const shareWindow = window.open("about:blank", "_blank");
     try {
       const share = await shareMutation.mutateAsync({
         imageDataUrl: canvasRef.current.toDataURL("image/png"),
@@ -133,9 +136,18 @@ export default function Home() {
       });
       const url = `${window.location.origin}/r/${share.id}`;
       const tweet = `${tweetCaption(format, details)} ${url}`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`, "_blank", "noopener,noreferrer");
+      const xIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
+      if (shareWindow) {
+        shareWindow.opener = null;
+        shareWindow.location.replace(xIntentUrl);
+      } else {
+        // Popup blockers may still prevent the reserved tab. In that case, keep
+        // the action useful by navigating the current tab to X's compose screen.
+        window.location.assign(xIntentUrl);
+      }
       toast.success("Share link is ready — X will attach your graphic preview.");
     } catch (error) {
+      shareWindow?.close();
       console.error(error);
       toast.error("We couldn't create your share link. Download the PNG and try again.");
     }

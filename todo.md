@@ -27,3 +27,5 @@
 - [x] Replace runtime-generated schedule rotation utilities with production-safe styling for the hanging-note treatment.
 - [x] Mark footer social links as pending official HH Goa / studio destinations rather than implying configured profiles.
 - [x] Run a post-update generator smoke test covering upload, crop, download, and Share-to-X creation.
+- [x] Fix Share-to-X so it opens the pre-filled X compose screen after generating the share URL, rather than only showing a success message.
+- [ ] Verify the corrected X intent flow on the live deployment without posting content.
